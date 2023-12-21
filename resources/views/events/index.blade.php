@@ -15,12 +15,14 @@
                 <div class="col">
 
                         <ul>
-                                @foreach ($events as $event)
-                                        <li>{{ $event }}</li>
-                                @endforeach
+                                @forelse ($events as $event)
+                                        <li>{{ $event->name }}</li>
+                                @empty
+                                        <li>No events found!</li>
+                                @endforelse
                         </ul>
 
                 </div>
         </div>
-
+        {!! $events->links('vendor.pagination.bootstrap-4') !!}
 @endsection
